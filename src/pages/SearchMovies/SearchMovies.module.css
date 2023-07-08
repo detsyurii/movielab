@@ -1,0 +1,28 @@
+.form {
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+.form input {
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+.formButton {
+  padding: 10px 20px;
+  font-size: 16px;
+  text-align: center;
+  margin-top: 10px; /* Додаємо відступ від поля для вводу */
+
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    color: #2196f3;
+    transform: scale(1.02);
+  }
+}

@@ -1,0 +1,8 @@
+.title {
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  font-size: 40px;
+  color: #2a363b;
+  margin-top: 0;
+}
