@@ -1,12 +1,7 @@
 .reviews {
   list-style: none;
   padding-inline-start: 0px;
-  padding: 0 20px;
-}
-
-.reviews li {
-  list-style: none;
-  
+  padding: 20px;
 }
 
 .noReviews {
