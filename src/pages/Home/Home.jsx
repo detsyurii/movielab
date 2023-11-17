@@ -8,28 +8,37 @@ import css from './Home.module.css';
 const Home = () => {
   const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
-    const fetchMovies = async () => {
+    const fetchMovies = async page => {
       setIsLoading(true);
       try {
-        setMovies(await getTrendingMovies());
+        const newMovies = await getTrendingMovies(page);
+        setMovies(prevMovies => [...prevMovies, ...newMovies]);
       } catch (error) {
         console.log(error);
       } finally {
         setIsLoading(false);
       }
     };
-    fetchMovies();
-  }, []);
+    fetchMovies(currentPage);
+  }, [currentPage]);
 
-  // console.log(movies);
+  const handleLoadMore = () => {
+    setCurrentPage(prevPage => prevPage + 1);
+  };
 
   return (
     <>
       <h1 className={css.title}>Trending movies</h1>
       {isLoading && <Loader />}
-      {movies && <MoviesList movies={movies} />}
+      {movies.length > 0 && <MoviesList movies={movies} />}
+      <div className={css.loadMoreContainer}>
+        <button onClick={handleLoadMore} className={css.loadMoreButton}>
+          Load more
+        </button>
+      </div>
     </>
   );
 };
