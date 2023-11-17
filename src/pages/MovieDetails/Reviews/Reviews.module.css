@@ -1,7 +1,7 @@
 .reviews {
   list-style: none;
-  /* padding-inline-start: 0px; */
   padding: 20px;
+  overflow: hidden;
 }
 
 .noReviews {
